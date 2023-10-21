@@ -7,11 +7,12 @@ const SidebarContainer = styled.div`
 	top: 60px;
 	right: 0;
 	bottom: 0;
-	width: 250px;
+	width: 300px;
 	color: black;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 	z-index: 10;
-	background-color: white;
+	/* background-color: red; */
+	padding-right: 10px;
+	
 
 	@media screen and (max-width: 768px) {
 		display: none;
@@ -29,14 +30,23 @@ const Wrapper = styled.div`
 `;
 
 const Cont = styled.div`
-	margin-top: 45px;
+	margin-top: 30px;
+	width: 100%;
 `;
 
 const WalletBar: React.FC = () => {
 	return (
 		<SidebarContainer>
 			<Wrapper>
-				<Cont>Wallet</Cont>
+				<Cont>
+					<div className='w-[220px] m-auto h-[46px] text-white justify-center bg-green-500 rounded-[10px] flex items-center mb-5'>
+						{" "}
+						+ Create Merchants
+					</div>
+					<div className="h-[300px] w-[100%] bg-white flex-1 ">
+
+					</div>
+				</Cont>
 			</Wrapper>
 		</SidebarContainer>
 	);
