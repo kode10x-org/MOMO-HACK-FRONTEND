@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import starIcon from "../../../assets/Star2.svg";
-
+import atm from "../../../assets/Momo/Icons/Atm Card.svg";
 const SidebarContainer = styled.div`
 	/* Your sidebar styles here */
 	position: fixed;
@@ -44,7 +44,9 @@ const WalletBar: React.FC = () => {
 						+ Create Merchants
 					</div>
 					<div className='h-[500px] w-[100%] bg-white flex-1  shadow-shadow rounded-[10px] p-3'>
-						<div className='h-[150px] rounded-[10px] w-[100%] bg-black mb-3'></div>
+						<div className='h-[150px] rounded-[10px] w-[100%] mb-3'>
+							<img className="h-[100%] w-[100%] object-contain" src = {atm}  />
+						</div>
 						<div className='flex justify-start flex-col items-start'>
 							<h3 className='font-bold'>Quick Transfer</h3>
 

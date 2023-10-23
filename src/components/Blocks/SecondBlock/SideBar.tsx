@@ -6,6 +6,7 @@ import walletLogo from "../../../assets/Momo/Icons/Wallet.svg";
 import transacLogo from "../../../assets/Momo/Icons/Transaction Icon.svg";
 import merchantLogo from "../../../assets/Momo/Icons/Merchant Icon.svg";
 import settingsLogo from "../../../assets/Momo/Icons/Settings.svg";
+
 const SidebarContainer = styled.div`
 	/* Your sidebar styles here */
 	position: fixed;
