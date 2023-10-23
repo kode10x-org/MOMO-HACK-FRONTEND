@@ -43,8 +43,8 @@ const WalletBar: React.FC = () => {
 						{" "}
 						+ Create Merchants
 					</div>
-					<div className="h-[300px] w-[100%] bg-white flex-1 ">
-
+					<div  className="h-[500px] w-[100%] bg-white flex-1  shadow-shadow rounded-[10px]">
+                     
 					</div>
 				</Cont>
 			</Wrapper>
