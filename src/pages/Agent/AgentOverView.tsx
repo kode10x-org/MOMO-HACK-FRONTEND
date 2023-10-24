@@ -5,7 +5,7 @@ import Table from "../../components/commons/Table";
 const AgentOverView = () => {
 	return (
 		<div>
-			<div className='flex gap-5 flex-wrap sm:flex-1 '>
+			<div className='flex gap-5 flex-wrap '>
 				<DisplayCard title='Wallet Balance' amount={50000} />
 				<DisplayCard title='Total Loan Limit' amount={140000} />
 				<DisplayCard title='Total Loan Given' amount={65000} />
@@ -16,7 +16,7 @@ const AgentOverView = () => {
 				<div className='w-[250px] h-[300px] bg-white rounded-[10px] shadow-shadow'></div>
 			</div>
 
-			<div className='flex-1 mt-10 bg-white h-[300px] mb-10 rounded-[10px] p-5 shadow-shadow'>
+			<div className='flex-1 mt-10 bg-white min-h-[300px] mb-10 rounded-[10px] p-5 shadow-shadow'>
 				<div>Transaction History</div>
 				<div>
 					<Table  />

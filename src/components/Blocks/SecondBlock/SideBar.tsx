@@ -6,6 +6,7 @@ import walletLogo from "../../../assets/Momo/Icons/Wallet.svg";
 import transacLogo from "../../../assets/Momo/Icons/Transaction Icon.svg";
 import merchantLogo from "../../../assets/Momo/Icons/Merchant Icon.svg";
 import settingsLogo from "../../../assets/Momo/Icons/Settings.svg";
+import { NavLink } from "react-router-dom";
 
 const SidebarContainer = styled.div`
 	/* Your sidebar styles here */
@@ -38,7 +39,7 @@ const Icon = styled.div`
 	margin-top: 5px;
 `;
 
-const Hold = styled.div`
+const Hold = styled(NavLink)`
 	display: flex;
 	align-items: center;
 	margin-bottom: 20px;
@@ -54,32 +55,32 @@ const Sidebar: React.FC = () => {
 		<SidebarContainer>
 			<Wrapper>
 				<Cont>
-					<Hold>
+					<Hold to='/agent-dashboard'>
 						<Icon>
 							<img className='w-[17px]' src={homeLogo} />
 						</Icon>
 						<Nav>Dashboard</Nav>
 					</Hold>
-					<Hold>
+					<Hold to='/'>
 						<Icon>
 							<img className='w-[17px]' src={walletLogo} />
 						</Icon>
 						<Nav>myWallet</Nav>
 					</Hold>
-					<Hold>
+					<Hold to='/agent-dashboard/transactions'>
 						<Icon>
 							<img className='w-[17px]' src={transacLogo} />
 						</Icon>
 						<Nav>Transactions</Nav>
 					</Hold>
-					<Hold>
+					<Hold to='/'>
 						<Icon>
 							<img className='w-[17px]' src={merchantLogo} />
 						</Icon>
 						<Nav>Merchants</Nav>
 					</Hold>
 
-					<Hold>
+					<Hold to='/'>
 						<Icon>
 							<img className='w-[17px]' src={settingsLogo} />
 						</Icon>

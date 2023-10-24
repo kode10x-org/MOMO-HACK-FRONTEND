@@ -7,7 +7,7 @@ interface Iprops {
 
 const DisplayCard: React.FC<Iprops> = ({ amount, title }) => {
 	return (
-		<div className='w-[270px] p-[20px] flex-1 bg-white text-primary min-h-[100px]   rounded-[10px] shadow-shadow '>
+		<div className='w-[270px] p-[20px] md:flex-1 xl:flex-1 2xl:flex-1  lg:flex-1 sm:w-[100%] bg-white text-primary min-h-[100px]   rounded-[10px] shadow-shadow '>
 			<div className='flex items-center justify-between'>
 				<div className='flex'>
 					<div className='h-[30px] w-[30px] bg-secondary rounded-[50%] mr-3'>
