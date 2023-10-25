@@ -6,12 +6,30 @@ import AgentSignUpLight from "../pages/Signup/AgentSignUpLight";
 import AgentSignUpDark from "../pages/Signup/AgentSignUpDark";
 import AgentSignInLight from "../pages/Signin/AgentSignInLight";
 import AgentSignInDark from "../pages/Signin/AgentSignInDark";
+import HeroDark from "../pages/Hero/HeroDark";
+import HeroLight from "../pages/Hero/HeroLight";
+import HomeLayoutDark from "../components/layouts/HomeLayoutDark";
 
 const Index = createBrowserRouter([
 	{
 		path: "/",
 		element: <HomeLayout />,
-		children: [],
+		children: [
+			{
+				index: true,
+				element: <HeroLight/>
+			}
+		],
+	},
+	{
+		path: "/",
+		element: <HomeLayoutDark />,
+		children: [
+			{
+				index: true,
+				element: <HeroDark/>
+			}
+		],
 	},
 
 	{

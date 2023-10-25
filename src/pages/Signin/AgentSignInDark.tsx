@@ -8,7 +8,6 @@ import {MdVisibility} from "react-icons/md"
 
 const Container = styled.div`
 height: 100vh;
-width: 100%;
 display: flex;
 box-sizing: border-box;
 `
@@ -20,7 +19,7 @@ h2{
     font-size: 34px;
     font-weight: bold;
     color: #084A5F;
-    padding-top: 20px;
+    /* padding-top: 20px; */
     margin-left: 30px;
 
     span{
@@ -31,7 +30,7 @@ h2{
     h2{
         font-size: 20px;
         margin-left: 15px;
-        padding-top: 15px;
+        /* padding-top: 15px; */
         font-weight: bold;
     }
 }
@@ -62,6 +61,8 @@ input{
     outline: #121212;
     color: #ffffffcf;
     font-size: 20px;  
+    border: none;
+
     ::placeholder{
         font-size: 18px;
     }
@@ -105,7 +106,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content:flex-end ;
-  height: 90%;
+  /* height: 90%; */
   padding-bottom: 50px;
 h2{
     margin-left: 0;
@@ -126,6 +127,7 @@ color: #084A5F;
 width: 100%;
 height: 60px;
 border-radius: 10px;
+border: none;
 p{
     font-size: 20px;
     font-weight: bolder;
@@ -145,7 +147,7 @@ p{
 
 }
 `
-const Button = styled.button`
+const Button = styled.div`
     color: white;
     background-color: #1D1E24;
     border-radius: 30px;
@@ -206,7 +208,7 @@ const Member = styled.div`
     color: #ffffffcf;
     font-size: 17px;
     font-weight: 600;
-    margin-top: 80px ;
+    margin-top: 40px ;
    
     span{
         color: #FFCB05;

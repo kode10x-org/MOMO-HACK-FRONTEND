@@ -19,7 +19,7 @@ h2{
     font-size: 34px;
     font-weight: bold;
     color: #084A5F;
-    padding-top: 20px;
+    /* padding-top: 20px; */
     margin-left: 30px;
 
     span{
@@ -30,7 +30,7 @@ h2{
     h2{
         font-size: 20px;
         margin-left: 15px;
-        padding-top: 15px;
+        /* padding-top: 15px; */
         font-weight: bold;
     }
 }
@@ -59,6 +59,7 @@ input{
     color: black;
     font-size: 20px;
     padding-left: 5px;
+    border: none;
     ::placeholder{
         font-size: 18px;
     }
@@ -102,7 +103,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content:flex-end ;
-  height: 90%;
+  /* height: 90%; */
   padding-bottom: 50px;
 h2{
     margin-left: 0;
@@ -120,6 +121,7 @@ background-color: #FFCB05;
 color: #084A5F;
 width: 100%;
 height: 60px;
+border: none;
 border-radius: 10px;
 font-size: 20px;
 font-weight: bolder;
@@ -136,7 +138,7 @@ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
 }
 `
-const Button = styled.button`
+const Button = styled.div`
     color: #084A5F;
     background-color: white;
     border-radius: 30px;
@@ -201,7 +203,7 @@ const Member = styled.div`
     color: #12121298;
     font-size: 17px;
     font-weight: 600;
-    margin-top: 80px ;
+    margin-top: 40px ;
    
     span{
         color: #084A5F;

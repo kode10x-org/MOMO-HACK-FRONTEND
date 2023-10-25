@@ -20,7 +20,7 @@ h2{
     font-size: 34px;
     font-weight: bold;
     color: #084A5F;
-    padding-top: 20px;
+    /* padding-top: 20px; */
     margin-left: 30px;
 
     span{
@@ -31,7 +31,7 @@ h2{
     h2{
         font-size: 20px;
         margin-left: 15px;
-        padding-top: 15px;
+        /* padding-top: 15px; */
         font-weight: bold;
     }
 }
@@ -60,6 +60,7 @@ input{
     outline: #121212;
     color: #ffffffcf;
     font-size: 20px;
+    border: none;
     ::placeholder{
         font-size: 18px;
     }
@@ -100,11 +101,14 @@ height: 26px;
 const CenterSignUp = styled.div`
 display: flex;
 flex-direction: column;
-justify-content: center;
 align-items: center;
+justify-content:flex-end ;
+  /* height: 90%; */
+  padding-bottom: 50px;
+  margin-top: 0;
 
 h2{
-    margin-left: 0;
+    margin: 0;
     padding-top: 0;
     font-size: 38px;
     color: #ffffffcf;
@@ -124,6 +128,7 @@ height: 60px;
 border-radius: 10px;
 font-size: 20px;
 font-weight: bold;
+border: none;
 @media (min-width: 320px) and (max-width: 767px){
     width: 91%;
     height: 50px;
@@ -135,7 +140,7 @@ font-weight: bold;
     margin-top: 30px;
 }
 `
-const Button = styled.button`
+const Button = styled.div`
     color: white;
     background-color: #1D1E24;
     border-radius: 30px;
@@ -199,7 +204,7 @@ const Member = styled.div`
     color: #ffffffcf;
     font-size: 17px;
     font-weight: 600;
-    margin-top: 30px ;
+    /* margin-top: 30px ; */
     span{
         color: #FFCB05;
         font-size: 18px;
