@@ -1,8 +1,15 @@
 import React from 'react'
+import Header from '../Blocks/FirstBlock/Header'
+import { Outlet } from 'react-router-dom'
+
 
 const HomeLayout = () => {
   return (
-    <div>HomeLayout</div>
+    <div>
+      <Header/>
+      <Outlet/>
+     
+    </div>
   )
 }
 
