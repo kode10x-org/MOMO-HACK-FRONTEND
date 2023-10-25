@@ -15,6 +15,7 @@ import AgentMerchant from "../pages/Agent/AgentMerchant";
 import MerchantLayout from "../components/layouts/MerchantLayout";
 import MerchantOverView from "../pages/Merchants/MerchantOverView";
 import MerchantWallet from "../pages/Merchants/MerchantWallet";
+import AgentSettingsProfile from "../pages/Agent/AgentSettingsProfile";
 
 const Index = createBrowserRouter([
 	{
@@ -55,6 +56,10 @@ const Index = createBrowserRouter([
 				path: "agentmerchant",
 				element: <AgentMerchant />,
 			},
+			{
+				path: "agentsettingsprofile",
+				element: <AgentSettingsProfile />,
+			}
 		],
 	},
 
@@ -89,7 +94,6 @@ const Index = createBrowserRouter([
 		path: "/agentsignindark",
 		element: <AgentSignInDark />,
 	},
-
 	{
 		path: "onboarding",
 		element: <OnboardingPage />,
