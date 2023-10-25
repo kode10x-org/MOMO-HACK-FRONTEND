@@ -11,6 +11,7 @@ import HeroLight from "../pages/Hero/HeroLight";
 import HomeLayoutDark from "../components/layouts/HomeLayoutDark";
 import OnboardingPage from "../pages/OnboardingPage";
 import AgentTransaction from "../pages/Agent/AgentTransaction";
+import AgentMerchant from "../pages/Agent/AgentMerchant";
 
 const Index = createBrowserRouter([
 	{
@@ -46,6 +47,10 @@ const Index = createBrowserRouter([
 			{
 				path: "transactions",
 				element: <AgentTransaction />,
+			},
+			{
+				path: "agentmerchant",
+				element: <AgentMerchant />,
 			},
 		],
 	},
