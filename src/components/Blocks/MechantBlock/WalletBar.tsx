@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import starIcon from "../../../assets/Star2.svg";
 import atm from "../../../assets/Group 255.jpg";
-
 const SidebarContainer = styled.div`
 	/* Your sidebar styles here */
 	position: fixed;
@@ -40,9 +39,15 @@ const WalletBar: React.FC = () => {
 		<SidebarContainer>
 			<Wrapper>
 				<Cont>
-					<div className='w-[220px] m-auto h-[46px] text-white justify-center bg-green-500 rounded-[10px] flex items-center mb-5 cursor-pointer'>
+					<div className='w-[220px] m-auto h-[40px] text-white justify-center bg-green-500 rounded-[10px] flex items-center mb-5 cursor-pointer'>
 						{" "}
-						+ Create Merchants
+						View Ajo
+					</div>
+					<div
+						className='w-[220px] m-auto h-[40px] text-white justify-center bg-green-500 
+rounded-[10px] flex items-center mb-2 cursor-pointer'>
+						{" "}
+						Get Loans
 					</div>
 					<div className='h-[500px] w-[100%] bg-white flex-1  shadow-shadow rounded-[10px] p-3'>
 						<div className='h-[150px] relative rounded-[10px] w-[100%] mb-3'>
@@ -51,8 +56,7 @@ const WalletBar: React.FC = () => {
 								<div className=" h-[24.30px]   text-white text-[20px] font-normal font-['Open Sans']">
 									1234345735686484456
 								</div>
-								<div
-									className=" h-[11.34px] text-left text-white text-[10px] font-semibold font-['Open Sans']">
+								<div className=" h-[11.34px] text-left text-white text-[10px] font-semibold font-['Open Sans']">
 									Expires 07/28
 								</div>
 								<div className="  text-left text-white text-[12px] font-bold font-['Open Sans']">
@@ -60,7 +64,6 @@ const WalletBar: React.FC = () => {
 								</div>
 							</div>
 						</div>
-
 						<div className='flex justify-start flex-col items-start'>
 							<h3 className='font-bold'>Quick Transfer</h3>
 
