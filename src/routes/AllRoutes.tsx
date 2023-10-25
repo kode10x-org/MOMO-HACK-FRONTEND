@@ -12,6 +12,7 @@ import HomeLayoutDark from "../components/layouts/HomeLayoutDark";
 import OnboardingPage from "../pages/OnboardingPage";
 import AgentTransaction from "../pages/Agent/AgentTransaction";
 import AgentMerchant from "../pages/Agent/AgentMerchant";
+import AgentSettingsProfile from "../pages/Agent/AgentSettingsProfile";
 
 const Index = createBrowserRouter([
 	{
@@ -52,6 +53,10 @@ const Index = createBrowserRouter([
 				path: "agentmerchant",
 				element: <AgentMerchant />,
 			},
+			{
+				path: "agentsettingsprofile",
+				element: <AgentSettingsProfile />,
+			}
 		],
 	},
 	{
@@ -70,7 +75,6 @@ const Index = createBrowserRouter([
 		path: "/agentsignindark",
 		element: <AgentSignInDark />
 	},
-
 	{
 		path: "onboarding",
 		element: <OnboardingPage />,
