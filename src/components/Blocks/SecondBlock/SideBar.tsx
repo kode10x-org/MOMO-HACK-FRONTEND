@@ -1,9 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import { RxDashboard } from "react-icons/rx";
-import { RiEBike2Line, RiListOrdered2 } from "react-icons/ri";
-import { MdOutlineProductionQuantityLimits } from "react-icons/md";
-import { AiFillSetting } from "react-icons/ai";
+
+import homeLogo from "../../../assets/Momo/Icons/Home Icon.svg";
+import walletLogo from "../../../assets/Momo/Icons/Wallet.svg";
+import transacLogo from "../../../assets/Momo/Icons/Transaction Icon.svg";
+import merchantLogo from "../../../assets/Momo/Icons/Merchant Icon.svg";
+import settingsLogo from "../../../assets/Momo/Icons/Settings.svg";
+import { NavLink } from "react-router-dom";
+
 const SidebarContainer = styled.div`
 	/* Your sidebar styles here */
 	position: fixed;
@@ -26,14 +30,16 @@ const Wrapper = styled.div`
 	margin-left: 40px;
 `;
 
-const Nav = styled.div``;
+const Nav = styled.div`
+	margin-top: 5px;
+`;
 
 const Icon = styled.div`
 	margin-right: 10px;
 	margin-top: 5px;
 `;
 
-const Hold = styled.div`
+const Hold = styled(NavLink)`
 	display: flex;
 	align-items: center;
 	margin-bottom: 20px;
@@ -49,38 +55,34 @@ const Sidebar: React.FC = () => {
 		<SidebarContainer>
 			<Wrapper>
 				<Cont>
-					<Hold>
+					<Hold to='/agent-dashboard'>
 						<Icon>
-							<RxDashboard />
+							<img className='w-[17px]' src={homeLogo} />
 						</Icon>
 						<Nav>Dashboard</Nav>
 					</Hold>
-					<Hold>
+					<Hold to='/'>
 						<Icon>
-							{" "}
-							<RiEBike2Line />
+							<img className='w-[17px]' src={walletLogo} />
 						</Icon>
 						<Nav>myWallet</Nav>
 					</Hold>
-					<Hold>
+					<Hold to='/agent-dashboard/transactions'>
 						<Icon>
-							{" "}
-							<RiListOrdered2 />
+							<img className='w-[17px]' src={transacLogo} />
 						</Icon>
 						<Nav>Transactions</Nav>
 					</Hold>
-					<Hold>
+					<Hold to='/'>
 						<Icon>
-							{" "}
-							<MdOutlineProductionQuantityLimits />
+							<img className='w-[17px]' src={merchantLogo} />
 						</Icon>
 						<Nav>Merchants</Nav>
 					</Hold>
 
-					<Hold>
+					<Hold to='/'>
 						<Icon>
-							{" "}
-							<AiFillSetting />
+							<img className='w-[17px]' src={settingsLogo} />
 						</Icon>
 						<Nav>Settings</Nav>
 					</Hold>

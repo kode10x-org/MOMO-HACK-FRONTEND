@@ -9,6 +9,8 @@ import AgentSignInDark from "../pages/Signin/AgentSignInDark";
 import HeroDark from "../pages/Hero/HeroDark";
 import HeroLight from "../pages/Hero/HeroLight";
 import HomeLayoutDark from "../components/layouts/HomeLayoutDark";
+import OnboardingPage from "../pages/OnboardingPage";
+import AgentTransaction from "../pages/Agent/AgentTransaction";
 
 const Index = createBrowserRouter([
 	{
@@ -40,6 +42,11 @@ const Index = createBrowserRouter([
 				index: true,
 				element: <AgentOverView />,
 			},
+
+			{
+				path: "transactions",
+				element: <AgentTransaction />,
+			},
 		],
 	},
 	{
@@ -57,7 +64,12 @@ const Index = createBrowserRouter([
 	{
 		path: "/agentsignindark",
 		element: <AgentSignInDark />
-	}
+	},
+
+	{
+		path: "onboarding",
+		element: <OnboardingPage />,
+	},
 ]);
 
 export default Index;

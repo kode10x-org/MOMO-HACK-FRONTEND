@@ -18,6 +18,11 @@ const LayoutContainer = styled.div`
 const OutletContainer = styled.div`
 	padding-top: 30px;
 	padding-left: 20px;
+	max-width: calc(100vw - 550px);
+
+	@media screen and (max-width: 768px) {
+		max-width: 95%;
+	}
 
 	/* To match the width of the Sidebar */
 `;

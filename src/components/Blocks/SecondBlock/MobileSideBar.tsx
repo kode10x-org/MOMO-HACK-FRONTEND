@@ -49,6 +49,7 @@ const SidebarContainer = styled.div<{ isOpen: boolean }>`
 	color: white;
 	height: 100%;
 	animation: ${(props) => (props.isOpen ? slideIn : slideOut)} 0.3s forwards;
+	z-index: 999;
 `;
 
 const Wrapper = styled.div`
