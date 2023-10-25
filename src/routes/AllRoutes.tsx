@@ -19,8 +19,8 @@ const Index = createBrowserRouter([
 		children: [
 			{
 				index: true,
-				element: <HeroLight/>
-			}
+				element: <HeroLight />,
+			},
 		],
 	},
 	{
@@ -29,8 +29,8 @@ const Index = createBrowserRouter([
 		children: [
 			{
 				index: true,
-				element: <HeroDark/>
-			}
+				element: <HeroDark />,
+			},
 		],
 	},
 
@@ -51,19 +51,19 @@ const Index = createBrowserRouter([
 	},
 	{
 		path: "/agentsignuplight",
-		element: <AgentSignUpLight />
+		element: <AgentSignUpLight />,
 	},
 	{
 		path: "/agentsignupdark",
-		element: <AgentSignUpDark />
+		element: <AgentSignUpDark />,
 	},
 	{
 		path: "/agentsigninlight",
-		element: <AgentSignInLight />
+		element: <AgentSignInLight />,
 	},
 	{
 		path: "/agentsignindark",
-		element: <AgentSignInDark />
+		element: <AgentSignInDark />,
 	},
 
 	{
