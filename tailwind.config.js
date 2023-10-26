@@ -1,13 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-	content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+	content: [
+		"./index.html",
+		"./src/**/*.{js,ts,jsx,tsx}",
+		"node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
+	],
 	theme: {
 		extend: {
 			colors: {
 				primary: "#0F6987",
 				secondary: "#FFCB05",
 				bgCard: "#F7FAFC",
-				bgIcon: "#22C55E"
+				bgIcon: "#22C55E",
 			},
 			boxShadow: {
 				shadow: "rgba(0, 0, 0, 0.05) 0px 0px 0px 1px",
@@ -31,5 +35,5 @@ export default {
 			// => @media (min-width: 1536px) { ... }
 		},
 	},
-	plugins: [],
+	plugins: [import("flowbite/plugin")],
 };

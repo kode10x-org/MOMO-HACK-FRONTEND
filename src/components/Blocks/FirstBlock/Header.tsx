@@ -72,7 +72,7 @@ const Header: React.FC = () => {
 			<Wrapper>
 				<Logo>
 					<h2>
-						Mo<span>Mo</span>
+						Market<span>Padi</span>
 					</h2>
 				</Logo>
 				<ButtHold>

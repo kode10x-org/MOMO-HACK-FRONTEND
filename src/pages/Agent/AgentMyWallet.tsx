@@ -1,46 +1,92 @@
-import React from 'react'
-import Table from '../../components/commons/Table'
-import {MdVisibilityOff} from "react-icons/md"
-import {MdVisibility} from "react-icons/md"
+import React from "react";
+import { AiFillEye } from "react-icons/ai";
+import PayBil from "../../components/Paybil/PayBil";
+import Table from "../../components/commons/Table";
+import {
+	useGetUserDataQuery,
+} from "../../utils/apiSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { BsEyeSlashFill } from "react-icons/bs";
+import { toggleShowAmount } from "../../services/Reducers";
+import ModalComp from "../../components/commons/Modal";
 
 const AgentMyWallet = () => {
-  return (
-   <div>
-     
-    <div className='flex gap-12 flex-wrap mt-2 mx-7 '>
-				<div className='flex-1 bg-white min-h-[300px] rounded-[10px] p-6   shadow-shadow'>
-                    <div className="flex items-center gap-2">
-                        <div className='font-bold text-[30px] '><h2>Wallet Balance</h2></div>
-                        <div className="text-[#084A5F]">
-                        <MdVisibilityOff/>
-                        </div>
-                        <div className='hidden'>
-                        <MdVisibility/>
-                        </div>
-                    </div>
-                    <div className="font-bold text-[50px] text-[#084A5F] mb-4 ">
-                        <h1>134,000</h1>
-                    </div>
-                    <div className="mb-12 text-gray-500 font-medium">
-                        <p>As at 6th October 2023</p>
-                    </div>
-                    <div className=' h-[45px] text-white justify-center bg-green-500 rounded-[10px] flex items-center mb-2 font-bold'>
-                    Add Money To Wallet
-                     </div>
-                </div>
-				<div className='w-[320px] min-h-[300px] bg-white rounded-[10px] shadow-shadow'></div>
+	const dispatch = useDispatch();
+	const readUser = useSelector(
+		(state: any) => state?.persistedReducer?.currentUser,
+	);
+
+	const { data } = useGetUserDataQuery(readUser?.id);
+	const readAmount = useSelector(
+		(state: any) => state.persistedReducer?.showAmount,
+	);
+
+	
+	return (
+		<div>
+			<div className='flex gap-10 flex-wrap '>
+				<div className='flex-1 bg-white rounded-[10px] p-5 shadow-shadow'>
+					<div className='flex items-center justify-between'>
+						<div className='flex'>
+							<div className='font-bold text-[20px] text-black mr-2'>
+								Wallet Balance
+							</div>
+						</div>
+
+						{readAmount ? (
+							<div
+								onClick={() => {
+									dispatch(toggleShowAmount());
+								}}
+								className='text-[20px] cursor-pointer'>
+								<BsEyeSlashFill />
+							</div>
+						) : (
+							<div
+								onClick={() => {
+									dispatch(toggleShowAmount());
+								}}
+								className='text-[20px] cursor-pointer'>
+								<AiFillEye />
+							</div>
+						)}
+					</div>
+					{readAmount ? (
+						<div className="text-cyan-900 text-2xl mt-1 font-bold font-['Open Sans']">
+							******
+						</div>
+					) : (
+						<div className="text-cyan-900 text-2xl font-bold font-['Open Sans']">
+							#{data?.data?.wallet?.balance}
+						</div>
+					)}
+
+					<div className='text-black mt-4 text-opacity-60 text-xs font-normal '>
+						As at 6th October 2023{" "}
+					</div>
+
+					<ModalComp type='fundWalletAgent' />
+				</div>
+				<div className='w-[400px]  bg-white rounded-[10px] shadow-shadow'></div>
 			</div>
-    <div className='min-h-[300px] rounded-[10px] mt-10 p-5 mx-7 shadow-shadow  bg-white'> Revenue Flow</div>
-   
-    <div className='flex-1 mt-10 bg-white min-h-[300px] mb-10 rounded-[10px] p-5 shadow-shadow mx-7'>
+			<div className='mt-10 sm:overflow-x-scroll'>
+				<PayBil />
+			</div>
+
+			<div className='flex-1 bg-white h-[300px] mt-10 rounded-[10px] p-5 shadow-shadow'>
+				Revenue
+			</div>
+
+			<div
+				className='flex-1 mt-10 bg-white min-h-[300px] mb-10 rounded-[10px] p-5 
+shadow-shadow'>
 				<div>Transaction History</div>
 				<div>
 					<Table />
 				</div>
 			</div>
-   </div>
-   
-  )
-}
+		</div>
+	);
+};
 
-export default AgentMyWallet
+export default AgentMyWallet;

@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { AiOutlineMenu } from "react-icons/ai";
 import MobileSidebar from "./MobileSideBar";
+import { useSelector } from "react-redux";
+import { useGetUserDataQuery } from "../../../utils/apiSlice";
+import ava from "../../../assets/Momo/Images/avatar.png";
+import { Dropdown } from "flowbite-react";
 
 const NavbarContainer = styled.div`
 	/* Your navbar styles here */
@@ -46,8 +50,17 @@ const IconHold = styled.div`
 	color: white;
 `;
 
-const Hold = styled.div``;
-const Uname = styled.div``;
+const Hold = styled.div`
+	display: flex;
+`;
+const Uname = styled.div`
+display: flex;
+word-break: normal;
+word-wrap: normal;
+width: 70px;
+height: 20px;
+overflow: hidden;
+`;
 const UEmail = styled.div`
 	color: gray;
 `;
@@ -62,8 +75,41 @@ const Menu = styled.div`
 	}
 `;
 
+
+
+const Wrapper = styled.div`
+	width: 100%;
+
+	h2 {
+		font-size: 25px;
+		font-weight: bold;
+		color: #084a5f;
+		/* padding-top: 20px; */
+		margin-left: 30px;
+
+		span {
+			color: #ffcb05;
+		}
+	}
+	@media (min-width: 320px) and (max-width: 767px) {
+		h2 {
+			font-size: 20px;
+			margin-left: 15px;
+			/* padding-top: 15px; */
+			font-weight: bold;
+		}
+	}
+`;
+
+
 const Navbar: React.FC = () => {
 	const [show, setShow] = useState<boolean>(false);
+	const readUser = useSelector(
+		(state: any) => state?.persistedReducer?.currentUser,
+	);
+	const { data } = useGetUserDataQuery(readUser?.id);
+
+	console.log(data);
 
 	const toggle = () => {
 		setShow(!show);
@@ -75,15 +121,33 @@ const Navbar: React.FC = () => {
 				<AiOutlineMenu />
 			</Menu>
 			<Cont>
-				<div>MOMO</div>
+				<Wrapper>
+					<h2>
+						Market<span>Padi</span>
+					</h2>
+				</Wrapper>
 
 				<User>
 					<IconHold style={{ borderRadius: "360px", fontSize: "12px" }}>
-						GE
+						<img
+							src={ava}
+							style={{ height: "100%", width: "100%", objectFit: "contain" }}
+						/>
 					</IconHold>
 					<Hold>
-						<Uname>Gideon Ekeke</Uname>
-						<UEmail>Agent</UEmail>
+						<div>
+							<Uname>{data?.data?.fullName}</Uname>
+							<UEmail>Agent</UEmail>
+						</div>
+
+						<Dropdown className='-z-10' label='' inline>
+							<Dropdown.Item>
+								Agent Code :{" "}
+								<div className='font-bold mr-3 ml-2'>
+									{data?.data?.agentCode}
+								</div>{" "}
+							</Dropdown.Item>
+						</Dropdown>
 					</Hold>
 				</User>
 			</Cont>

@@ -7,8 +7,8 @@ const OnboardingPage: React.FC = () => {
 		<div className=' sm:flex-col bg-[#FFFFFF] p-[10px] h-[700px]  flex lg:flex  items-center justify-center gap-10 sm:gap-0 '>
 			<div className=''>
 				<div className=' flex justify-center items-center pt-[100px] font-extrabold text-3xl pb-4'>
-					<h3 className=' text-[#084A5F]'>Mo</h3>
-					<h3 className=' text-[#FFCB05]'>Mo</h3>
+					<h3 className=' text-[#084A5F]'>Market</h3>
+					<h3 className=' text-[#FFCB05]'>Padi</h3>
 				</div>
 				<div className=' flex justify-center font-semibold'>
 					<p className='text-[#FFCB05]'>Duis</p>

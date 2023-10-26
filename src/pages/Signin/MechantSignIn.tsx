@@ -1,11 +1,16 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "@emotion/styled";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { FcGoogle } from "react-icons/fc";
 import { MdVisibilityOff } from "react-icons/md";
 import { MdVisibility } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Loader from "../../components/commons/Loader";
+import ShowToast from "../../components/commons/ShowToast";
+import { AddUser } from "../../services/Reducers";
+import { SignInMerchant } from "../../utils/ApiCalls";
+import {useDispatch}  from 'react-redux'
 
 const Container = styled.div`
 	height: 100vh;
@@ -216,11 +221,50 @@ const Member = styled.div`
 	}
 `;
 const MechantSignIn: React.FC = () => {
+	const Navigate = useNavigate();
+	const dispatch = useDispatch();
+	const [formData, setFormData] = useState({
+		emailOrPhone: "",
+		password: "",
+	});
+	const onChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+		const { value, name } = e.target;
+		setFormData((prevProfile) => ({
+			...prevProfile,
+			[name]: value,
+		}));
+	};
+	const [load, setLoad] = useState(false);
+	const handleSubmit = async () => {
+		setLoad(true);
+		try {
+			const response = await SignInMerchant(formData);
+            console.log(formData);
+			console.log(response);
+			setLoad(false);
+			if (response!.status === 200) {
+				dispatch(
+					AddUser({
+						fullName: response?.data?.data?.fullName,
+						id: response?.data?.data?._id,
+						verify: response?.data?.data?.verify,
+						token: response?.data?.token,
+						role : "merchant"
+					}),
+				);
+				ShowToast(true, "Login Successfull");
+				Navigate("/merchant-dashboard");
+			}
+		} catch (err) {
+			return err;
+		}
+	};
 	return (
 		<Container>
+			{load ? <Loader /> : null}
 			<Wrapper>
 				<h2>
-					MO<span>MO</span>
+					Market<span>Padi</span>
 				</h2>
 				<CenterSignUp>
 					<h2>Sign In</h2>
@@ -232,19 +276,35 @@ const MechantSignIn: React.FC = () => {
 						<p>Use Google Account</p>
 					</Button>
 					<Paras>or</Paras>
-					<form>
+					<form
+						onSubmit={(e) => {
+							e.preventDefault();
+							handleSubmit();
+						}}>
 						<UserInput>
 							<Icon>
 								<MdEmail />
 							</Icon>
-							<input type='email' required placeholder='Email' />
+							<input
+								name='emailOrPhone'
+								onChange={onChangeValue}
+								type='email'
+								required
+								placeholder='Email'
+							/>
 						</UserInput>
 
 						<UserInput>
 							<Icon>
 								<RiLockPasswordFill />
 							</Icon>
-							<input type='password' required placeholder='Password' />
+							<input
+								name='password'
+								onChange={onChangeValue}
+								type='password'
+								required
+								placeholder='Password'
+							/>
 							<Visibility>
 								<MdVisibilityOff />
 							</Visibility>

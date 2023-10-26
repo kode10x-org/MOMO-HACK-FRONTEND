@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
@@ -7,8 +7,11 @@ import { RiLockPasswordFill } from "react-icons/ri";
 import { FcGoogle } from "react-icons/fc";
 import { MdVisibilityOff } from "react-icons/md";
 import { MdVisibility } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AiFillSecurityScan } from "react-icons/ai";
+import ShowToast from "../../components/commons/ShowToast";
+import Loader from "../../components/commons/Loader";
+import { RegisterMerchant } from "../../utils/ApiCalls";
 
 const Container = styled.div`
 	height: 100vh;
@@ -42,13 +45,9 @@ const Wrapper = styled.div`
 const Wrapper2 = styled.div`
 	background-color: #f1f1f1;
 	width: 100%;
-   
-    min-height: 120vh;
-   
-   
-  
-  
-  
+
+	min-height: 120vh;
+
 	@media (min-width: 320px) and (max-width: 1023px) {
 		display: none;
 	}
@@ -226,11 +225,45 @@ const Member = styled.div`
 	}
 `;
 const MerchantSignUp: React.FC = () => {
+	const Navigate = useNavigate();
+	const [formData, setFormData] = useState({
+		fullName: "",
+		email: "",
+		password: "",
+		phoneNumber: "",
+		agentCode: "",
+	});
+
+	const onChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+		const { value, name } = e.target;
+
+		setFormData((prevProfile) => ({
+			...prevProfile,
+			[name]: value,
+		}));
+	};
+
+	const [load, setLoad] = useState(false);
+
+	const handleSubmit = async () => {
+		setLoad(true);
+		try {
+			const response = await RegisterMerchant(formData);
+			console.log(response);
+			setLoad(false);
+			ShowToast(true, "Registration Successfull");
+			Navigate("/merchantsignin");
+		} catch (err) {
+			return err;
+		}
+	};
+
 	return (
 		<Container>
+			{load ? <Loader /> : null}
 			<Wrapper>
 				<h2>
-					MO<span>MO</span>
+					Market<span>Padi</span>
 				</h2>
 				<CenterSignUp>
 					<h2>Sign Up</h2>
@@ -242,37 +275,75 @@ const MerchantSignUp: React.FC = () => {
 						<p>Use Google Account</p>
 					</Button>
 					<Paras>or</Paras>
-					<form>
+					<form
+						onSubmit={(e) => {
+							e.preventDefault();
+							handleSubmit();
+						}}>
 						<UserInput>
 							<Icon>
 								<FaUser />
 							</Icon>
-							<input type='text' required placeholder='Full Name' />
+							<input
+								name='fullName'
+								value={formData.fullName}
+								type='text'
+								onChange={onChangeValue}
+								required
+								placeholder='Full Name'
+							/>
 						</UserInput>
 						<UserInput>
 							<Icon>
 								<MdEmail />
 							</Icon>
-							<input type='email' required placeholder='Email' />
+							<input
+								name='email'
+								value={formData.email}
+								type='email'
+								onChange={onChangeValue}
+								required
+								placeholder='Email'
+							/>
 						</UserInput>
 						<UserInput>
 							<Icon>
 								<BsFillTelephoneFill />
 							</Icon>
-							<input type='tel' required placeholder='Phone Number' />
+							<input
+								name='phoneNumber'
+								value={formData.phoneNumber}
+								onChange={onChangeValue}
+								type='tel'
+								required
+								placeholder='Phone Number'
+							/>
 						</UserInput>
 
 						<UserInput>
 							<Icon>
 								<AiFillSecurityScan />
 							</Icon>
-							<input type='' required placeholder='Agent Code' />
+							<input
+								name='agentCode'
+								value={formData.agentCode}
+								onChange={onChangeValue}
+								required
+								placeholder='Agent code eg. extyv'
+							/>
 						</UserInput>
 						<UserInput>
 							<Icon>
 								<RiLockPasswordFill />
 							</Icon>
-							<input type='password' required placeholder='Password' />
+							<input
+								name='password'
+								value={formData.password}
+								onChange={onChangeValue}
+								type='password'
+								required
+								placeholder='Password'
+							/>
 							<Visibility>
 								<MdVisibilityOff />
 							</Visibility>

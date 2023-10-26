@@ -61,7 +61,7 @@ const Sidebar: React.FC = () => {
 						</Icon>
 						<Nav>Dashboard</Nav>
 					</Hold>
-					<Hold to='/'>
+					<Hold to='/agent-dashboard/agentmywallet'>
 						<Icon>
 							<img className='w-[17px]' src={walletLogo} />
 						</Icon>

@@ -255,7 +255,7 @@ const AgentSignUpLight: React.FC = () => {
 			{load ? <Loader /> : null}
 			<Wrapper>
 				<h2>
-					MO<span>MO</span>
+					Market<span>Padi</span>
 				</h2>
 				<CenterSignUp>
 					<h2>Sign Up</h2>
@@ -271,7 +271,9 @@ const AgentSignUpLight: React.FC = () => {
 						onSubmit={(e) => {
 							e.preventDefault();
 							handleSubmit();
-						}}>
+						}}
+                        
+                        >
 						<UserInput>
 							<Icon>
 								<FaUser />

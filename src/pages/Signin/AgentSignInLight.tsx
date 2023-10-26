@@ -9,6 +9,8 @@ import { Link, useNavigate } from "react-router-dom";
 import Loader from "../../components/commons/Loader";
 import { SignInAgent } from "../../utils/ApiCalls";
 import ShowToast from "../../components/commons/ShowToast";
+import { AddUser } from "../../services/Reducers";
+import {useDispatch}  from 'react-redux'
 
 const Container = styled.div`
 	height: 100vh;
@@ -220,6 +222,7 @@ const Member = styled.div`
 `;
 const AgentSignInLight: React.FC = () => {
 	const Navigate = useNavigate();
+    const dispatch = useDispatch()
 	const [formData, setFormData] = useState({
 		email: "",
 		password: "",
@@ -239,8 +242,17 @@ const AgentSignInLight: React.FC = () => {
 			console.log(response);
 			setLoad(false);
 			if (response!.status === 200) {
+                dispatch(
+									AddUser({
+                                        fullName : response?.data?.data?.fullName,
+										id: response?.data?.data?._id,
+										verify: response?.data?.data?.verify,
+                                        token : response?.data?.token,
+										role : "agent"
+									}),
+								);
 				ShowToast(true, "Login Successfull");
-				Navigate("/agentsignin");
+				Navigate("/agent-dashboard");
 			}
 		} catch (err) {
 			return err;
@@ -251,7 +263,7 @@ const AgentSignInLight: React.FC = () => {
 			{load ? <Loader /> : null}
 			<Wrapper>
 				<h2>
-					MO<span>MO</span>
+					Market<span>Padi</span>
 				</h2>
 				<CenterSignUp>
 					<h2>Sign In</h2>
@@ -267,7 +279,8 @@ const AgentSignInLight: React.FC = () => {
 						onSubmit={(e) => {
 							e.preventDefault();
 							handleSubmit();
-						}}>
+						}}
+                        >
 						<UserInput>
 							<Icon>
 								<MdEmail />

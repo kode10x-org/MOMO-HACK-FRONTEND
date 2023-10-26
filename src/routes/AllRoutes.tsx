@@ -20,6 +20,7 @@ import MerchantSignUp from "../pages/Signup/MechantSignUp";
 import MechantSignIn from "../pages/Signin/MechantSignIn";
 import AgentSettingsSecurity from "../pages/Agent/AgentSettingsSecurity";
 import AgentMyWallet from "../pages/Agent/AgentMyWallet";
+import MerchantDetails from "../pages/Agent/MerchantDetails";
 
 const Index = createBrowserRouter([
 	{
@@ -61,6 +62,10 @@ const Index = createBrowserRouter([
 				element: <AgentMerchant />,
 			},
 			{
+				path: "agentmerchant/details/:id",
+				element : <MerchantDetails  />
+			},
+			{
 				path: "agentmywallet",
 				element: <AgentMyWallet />,
 			},
@@ -71,7 +76,7 @@ const Index = createBrowserRouter([
 			{
 				path: "agentsecurity",
 				element: <AgentSettingsSecurity />,
-			}
+			},
 		],
 	},
 
