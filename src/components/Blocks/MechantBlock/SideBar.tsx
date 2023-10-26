@@ -73,14 +73,14 @@ const Sidebar: React.FC = () => {
 						</Icon>
 						<Nav>Transactions</Nav>
 					</Hold>
-					<Hold to='/'>
+					<Hold to='/merchant-dashboard'>
 						<Icon>
 							<img className='w-[17px]' src={merchantLogo} />
 						</Icon>
-						<Nav>Merchants</Nav>
+						<Nav>Ajo</Nav>
 					</Hold>
 
-					<Hold to='/'>
+					<Hold to='/merchant-dashboard'>
 						<Icon>
 							<img className='w-[17px]' src={settingsLogo} />
 						</Icon>

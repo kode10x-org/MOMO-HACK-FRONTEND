@@ -1,6 +1,6 @@
 import React from "react";
 
-const Loader = () => {
+const Loader:React.FC = () => {
 	return (
 		<div className='absolute backdrop-blur-sm bg-[rgba(0,0,0,0.9)] flex justify-center items-center top-0 bottom-0 left-0 right-0 z-50'>
 			<div role='status'>

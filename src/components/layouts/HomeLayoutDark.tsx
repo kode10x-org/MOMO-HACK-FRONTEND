@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom'
 import HeaderDark from '../Blocks/FirstBlock/HeaderDark'
 
 
-const HomeLayoutDark = () => {
+const HomeLayoutDark:React.FC = () => {
   return (
     <div>
       <HeaderDark/>

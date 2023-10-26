@@ -5,7 +5,7 @@ import PayBil from "../../components/Paybil/PayBil";
 import { useGetMerchantDataQuery } from "../../utils/apiSlice";
 import { useSelector } from "react-redux";
 
-const MerchantOverView = () => {
+const MerchantOverView:React.FC = () => {
 	const readUser = useSelector(
 		(state: any) => state?.persistedReducer?.currentUser,
 	);

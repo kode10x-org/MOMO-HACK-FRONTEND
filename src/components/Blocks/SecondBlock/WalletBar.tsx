@@ -55,12 +55,12 @@ const WalletBar: React.FC = () => {
 				amount,
 				decs,
 			})
-				.then((res) => {
+				.then(() => {
 				
 
 					ShowToast(true, "Transfer successfull")
 				})
-				.catch((err) => {
+				.catch(() => {
 				
 					ShowToast(false, "Transaction failed");
 				});

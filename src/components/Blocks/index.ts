@@ -1,1 +1,1 @@
-export * as FirstBlock from "./FirstBlock";
+export * as FirstBlock from "./FirstBlock/Header";

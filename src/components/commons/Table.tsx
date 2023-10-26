@@ -4,7 +4,7 @@ import {
 	useGetAgentHistoryQuery,
 	useGetMerchantHistoryQuery,
 } from "../../utils/apiSlice";
-const Table = () => {
+const Table:React.FC = () => {
 	const user = useSelector((state: any) => state.persistedReducer?.currentUser);
 
 	const { data: merchantData } = useGetMerchantHistoryQuery(user?.id);
@@ -48,7 +48,7 @@ const Table = () => {
 				<tbody>
 					{user?.role === "agent" && (
 						<>
-							{agentData?.data?.history?.map((props) => (
+							{agentData?.data?.history?.map((props:any) => (
 								<tr
 									className='bg-white border-b  hover:text-white  dark:border-gray-700 hover:bg-gray-50
 dark:hover:bg-gray-600 '>
@@ -87,7 +87,7 @@ dark:border-gray-600'
 
 					{user?.role === "merchant" && (
 						<>
-							{merchantData?.data?.history?.map((props) => (
+							{merchantData?.data?.history?.map((props:any) => (
 								<tr
 									className='bg-white border-b  hover:text-white  dark:border-gray-700 hover:bg-gray-50
 dark:hover:bg-gray-600 '>

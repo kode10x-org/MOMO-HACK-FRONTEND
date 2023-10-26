@@ -1,10 +1,10 @@
 import React from "react";
 import Table from "../../components/commons/Table";
 
-const AgentTransaction:React.FC = () => {
+const UserTransaction:React.FC = () => {
 	return (
 		<div
-			className='flex-1 mt-2 bg-white min-h-[300px] mb-10 
+			className='flex-1 bg-white min-h-[300px] mb-10 
 rounded-[10px] p-5 shadow-shadow'>
 			<div className="font-bold">Transaction History</div>
 			<br />
@@ -15,10 +15,10 @@ rounded-[10px] p-5 shadow-shadow'>
 						<select
 							id='countries'
 							className='bg-gray-50 border border-gray-100  text-sm rounded-lg focus:ring-blue-500 
-focus:border-blue-500 block w-full p-2.5  
+focus:border-blue-500 block  p-2.5  
 dark:border-gray-600 dark:placeholder-gray-400 
 text-black text-opacity-40 dark:focus:ring-blue-500 
-dark:focus:border-blue-500 mb-3 h-[40px] '>
+dark:focus:border-blue-500 mb-3 h-[40px] w-[200px] '>
 							<option selected>Choose a Bank</option>
 							<option value='US'>Access</option>
 							<option value='CA'>Opay</option>
@@ -28,12 +28,12 @@ dark:focus:border-blue-500 mb-3 h-[40px] '>
 					</div>
 
 					<div>
-						<div>Reciepents</div>
+						<div>Receipents</div>
 						<select
 							id='countries'
 							className='bg-gray-50 border border-gray-100  
 text-sm rounded-lg focus:ring-blue-500 
-focus:border-blue-500 block w-full p-2.5  
+focus:border-blue-500 block w-[200px] p-2.5  
 dark:border-gray-600 dark:placeholder-gray-400 
 text-black text-opacity-40 dark:focus:ring-blue-500 
 dark:focus:border-blue-500 mb-3 h-[40px] '>
@@ -97,11 +97,11 @@ dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gra
 					</div>
 				</div>
 			</div>
-			<div>
+			<div className="font-bold">
 				<Table />
 			</div>
 		</div>
 	);
 };
 
-export default AgentTransaction;
+export default UserTransaction;

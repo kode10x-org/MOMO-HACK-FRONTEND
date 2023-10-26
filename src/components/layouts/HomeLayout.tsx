@@ -3,7 +3,7 @@ import Header from '../Blocks/FirstBlock/Header'
 import { Outlet } from 'react-router-dom'
 
 
-const HomeLayout = () => {
+const HomeLayout:React.FC = () => {
   return (
     <div>
       <Header/>

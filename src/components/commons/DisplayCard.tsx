@@ -5,7 +5,8 @@ import {useSelector, useDispatch}  from 'react-redux'
 import { toggleShowAmount } from "../../services/Reducers";
 interface Iprops {
 	title: string;
-	amount: number;
+	icon?: any;
+	amount: number | string;
 }
 
 const DisplayCard: React.FC<Iprops> = ({ amount, title }) => {

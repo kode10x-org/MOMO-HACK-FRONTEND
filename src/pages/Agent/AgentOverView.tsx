@@ -4,7 +4,7 @@ import Table from "../../components/commons/Table";
 import { useSelector } from "react-redux";
 import { useGetUserDataQuery } from "../../utils/apiSlice";
 
-const AgentOverView = () => {
+const AgentOverView:React.FC = () => {
 	const readUser = useSelector((state:any) => state?.persistedReducer?.currentUser);
 
 	const { data } = useGetUserDataQuery(readUser?.id);

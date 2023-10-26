@@ -10,7 +10,7 @@ import { BsEyeSlashFill } from "react-icons/bs";
 import { toggleShowAmount } from "../../services/Reducers";
 import ModalComp from "../../components/commons/Modal";
 
-const AgentMyWallet = () => {
+const AgentMyWallet:React.FC = () => {
 	const dispatch = useDispatch();
 	const readUser = useSelector(
 		(state: any) => state?.persistedReducer?.currentUser,

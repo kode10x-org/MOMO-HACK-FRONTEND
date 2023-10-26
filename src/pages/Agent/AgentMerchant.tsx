@@ -3,7 +3,7 @@ import MerchantCard from "../../components/commons/MerchantCard";
 import { useSelector } from "react-redux";
 import { useGetAllMerchantDataQuery } from "../../utils/apiSlice";
 
-const AgentMerchant = () => {
+const AgentMerchant:React.FC = () => {
 	const user = useSelector(
 		(state: any) => state?.persistedReducer?.currentUser,
 	);
@@ -28,7 +28,7 @@ const AgentMerchant = () => {
 			<div className='flex justify-center flex-wrap'>
 				{data?.data?.length >= 1 ? (
 					<>
-						{data?.data?.map((props) => (
+						{data?.data?.map((props:any) => (
 							<MerchantCard props = {props} />
 						))}
 					</>

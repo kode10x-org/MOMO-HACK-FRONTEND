@@ -2,11 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { AiOutlineMenu } from "react-icons/ai";
 import MobileSidebar from "./MobileSideBar";
-import { useSelector } from "react-redux";
-
-import ava from "../../../assets/Momo/Images/avatar.png";
-import { Dropdown } from "flowbite-react";
-import { useGetMerchantDataQuery } from "../../../utils/apiSlice";
 
 const NavbarContainer = styled.div`
 	/* Your navbar styles here */
@@ -51,17 +46,8 @@ const IconHold = styled.div`
 	color: white;
 `;
 
-const Hold = styled.div`
-	display: flex;
-`;
-const Uname = styled.div`
-	display: flex;
-	word-break: normal;
-	word-wrap: normal;
-	width: 70px;
-	height: 20px;
-	overflow: hidden;
-`;
+const Hold = styled.div``;
+const Uname = styled.div``;
 const UEmail = styled.div`
 	color: gray;
 `;
@@ -76,38 +62,8 @@ const Menu = styled.div`
 	}
 `;
 
-const Wrapper = styled.div`
-	width: 100%;
-
-	h2 {
-		font-size: 25px;
-		font-weight: bold;
-		color: #084a5f;
-		/* padding-top: 20px; */
-		margin-left: 30px;
-
-		span {
-			color: #ffcb05;
-		}
-	}
-	@media (min-width: 320px) and (max-width: 767px) {
-		h2 {
-			font-size: 20px;
-			margin-left: 15px;
-			/* padding-top: 15px; */
-			font-weight: bold;
-		}
-	}
-`;
-
 const Navbar: React.FC = () => {
 	const [show, setShow] = useState<boolean>(false);
-	const readUser = useSelector(
-		(state: any) => state?.persistedReducer?.currentUser,
-	);
-	const { data } = useGetMerchantDataQuery(readUser?.id);
-
-	console.log(data);
 
 	const toggle = () => {
 		setShow(!show);
@@ -119,34 +75,15 @@ const Navbar: React.FC = () => {
 				<AiOutlineMenu />
 			</Menu>
 			<Cont>
-				<Wrapper>
-					<h2>
-						Market<span>Padi</span>
-					</h2>
-				</Wrapper>
-		
+				<h1 className="text-[#084A5F] font-bold text-[22px]">Market<span className="text-[#FFCB05] font-bold text-[22px]">Padi</span></h1>
 
 				<User>
 					<IconHold style={{ borderRadius: "360px", fontSize: "12px" }}>
-						<img
-							src={ava}
-							style={{ height: "100%", width: "100%", objectFit: "contain" }}
-						/>
+						GE
 					</IconHold>
 					<Hold>
-						<div>
-							<Uname>{data?.data?.fullName}</Uname>
-							<UEmail>Merchant</UEmail>
-						</div>
-
-						<Dropdown className='-z-10' label='' inline>
-							{/* <Dropdown.Item> */}
-							{/* Agent Code :  */}
-							{/* <div className='font-bold mr-3 ml-2'> */}
-							{/* {data?.data?.agentCode} */}
-							{/* </div>{" "} */}
-							{/* </Dropdown.Item> */}
-						</Dropdown>
+						<Uname>Godwin Udoh</Uname>
+						<UEmail>User</UEmail>
 					</Hold>
 				</User>
 			</Cont>
