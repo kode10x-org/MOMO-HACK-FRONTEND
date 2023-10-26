@@ -61,7 +61,7 @@ const Sidebar: React.FC = () => {
 						</Icon>
 						<Nav>Dashboard</Nav>
 					</Hold>
-					<Hold to='/'>
+					<Hold to='/agent-dashboard/agentmywallet'>
 						<Icon>
 							<img className='w-[17px]' src={walletLogo} />
 						</Icon>
@@ -73,14 +73,14 @@ const Sidebar: React.FC = () => {
 						</Icon>
 						<Nav>Transactions</Nav>
 					</Hold>
-					<Hold to='/'>
+					<Hold to='/agent-dashboard/agentmerchant'>
 						<Icon>
 							<img className='w-[17px]' src={merchantLogo} />
 						</Icon>
 						<Nav>Merchants</Nav>
 					</Hold>
 
-					<Hold to='/'>
+					<Hold to='/agent-dashboard/agentprofile'>
 						<Icon>
 							<img className='w-[17px]' src={settingsLogo} />
 						</Icon>
