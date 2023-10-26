@@ -18,7 +18,7 @@ const LayoutContainer = styled.div`
 const OutletContainer = styled.div`
 	padding-top: 30px;
 	padding-left: 20px;
-	max-width: calc(100vw - 550px);
+	max-width: calc(100vw - 540px);
 
 	@media screen and (max-width: 768px) {
 		max-width: 95%;

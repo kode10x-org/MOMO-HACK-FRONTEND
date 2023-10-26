@@ -13,6 +13,8 @@ import OnboardingPage from "../pages/OnboardingPage";
 import AgentTransaction from "../pages/Agent/AgentTransaction";
 import AgentMerchant from "../pages/Agent/AgentMerchant";
 import AgentSettingsProfile from "../pages/Agent/AgentSettingsProfile";
+import AgentSettingsSecurity from "../pages/Agent/AgentSettingsSecurity";
+import AgentMyWallet from "../pages/Agent/AgentMyWallet";
 
 const Index = createBrowserRouter([
 	{
@@ -26,7 +28,7 @@ const Index = createBrowserRouter([
 		],
 	},
 	{
-		path: "/",
+		path: "home-dark",
 		element: <HomeLayoutDark />,
 		children: [
 			{
@@ -54,8 +56,16 @@ const Index = createBrowserRouter([
 				element: <AgentMerchant />,
 			},
 			{
-				path: "agentsettingsprofile",
+				path: "agentmywallet",
+				element: <AgentMyWallet />,
+			},
+			{
+				path: "agentprofile",
 				element: <AgentSettingsProfile />,
+			},
+			{
+				path: "agentsecurity",
+				element: <AgentSettingsSecurity />,
 			}
 		],
 	},
