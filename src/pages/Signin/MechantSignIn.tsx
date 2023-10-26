@@ -1,20 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "@emotion/styled";
-import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import { BsFillTelephoneFill } from "react-icons/bs";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { FcGoogle } from "react-icons/fc";
 import { MdVisibilityOff } from "react-icons/md";
 import { MdVisibility } from "react-icons/md";
-import { Link, useNavigate } from "react-router-dom";
-import { RegisterAgent } from "../../utils/ApiCalls";
-import Loader from "../../components/commons/Loader";
-import ShowToast from "../../components/commons/ShowToast";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
 	height: 100vh;
 	display: flex;
+	box-sizing: border-box;
 `;
 const Wrapper = styled.div`
 	background-color: #f7f9fc;
@@ -60,10 +56,10 @@ const UserInput = styled.div`
 		background-color: transparent;
 		width: 100%;
 		height: 60px;
-		padding-left: 5px;
 		outline: #121212;
 		color: black;
 		font-size: 20px;
+		padding-left: 5px;
 		border: none;
 		::placeholder {
 			font-size: 18px;
@@ -72,7 +68,6 @@ const UserInput = styled.div`
 	@media (min-width: 320px) and (max-width: 767px) {
 		margin: 15px 15px;
 		input {
-			font-size: 16px;
 			height: 50px;
 			width: 90%;
 			font-size: 16px;
@@ -105,15 +100,16 @@ const Icon = styled.div`
 const CenterSignUp = styled.div`
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	align-items: center;
+	justify-content: flex-end;
+	/* height: 90%; */
+	padding-bottom: 50px;
 	h2 {
-		margin: 0;
+		margin-left: 0;
 		padding-top: 0;
 		font-size: 38px;
 	}
 	@media (min-width: 320px) and (max-width: 767px) {
-		margin-top: 60px;
 		h2 {
 			font-size: 30px;
 		}
@@ -124,20 +120,20 @@ const UserButton = styled.button`
 	color: #084a5f;
 	width: 100%;
 	height: 60px;
+	border: none;
 	border-radius: 10px;
 	font-size: 20px;
-	font-weight: bold;
-	border: none;
+	font-weight: bolder;
 	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 	@media (min-width: 320px) and (max-width: 767px) {
-		width: 91%;
+		width: 92%;
 		height: 50px;
-		border-radius: 10px;
+		margin-top: 20px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		margin: 0 auto;
-		margin-top: 30px;
+		font-size: 18px;
 	}
 `;
 const Button = styled.div`
@@ -205,7 +201,8 @@ const Member = styled.div`
 	color: #12121298;
 	font-size: 17px;
 	font-weight: 600;
-	/* margin-top: 30px ; */
+	margin-top: 40px;
+
 	span {
 		color: #084a5f;
 		font-size: 18px;
@@ -218,47 +215,15 @@ const Member = styled.div`
 		}
 	}
 `;
-const AgentSignUpLight: React.FC = () => {
-	const Navigate = useNavigate();
-	const [formData, setFormData] = useState({
-		fullName: "",
-		email: "",
-		password: "",
-		phoneNumber: "",
-	});
-
-	const onChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
-		const { value, name } = e.target;
-
-		setFormData((prevProfile) => ({
-			...prevProfile,
-			[name]: value,
-		}));
-	};
-
-	const [load, setLoad] = useState(false);
-
-	const handleSubmit = async () => {
-		setLoad(true);
-		try {
-			await RegisterAgent(formData);
-			setLoad(false);
-			ShowToast(true, "Registration Successfull");
-			Navigate("/agentsignin");
-		} catch (err) {
-			return err;
-		}
-	};
-
+const MechantSignIn: React.FC = () => {
 	return (
 		<Container>
-			{load ? <Loader /> : null}
 			<Wrapper>
 				<h2>
 					MO<span>MO</span>
 				</h2>
 				<CenterSignUp>
-					<h2>Sign Up</h2>
+					<h2>Sign In</h2>
 					<Para>Join the Momo Community Today !</Para>
 					<Button>
 						<GoogleIcon>
@@ -267,62 +232,19 @@ const AgentSignUpLight: React.FC = () => {
 						<p>Use Google Account</p>
 					</Button>
 					<Paras>or</Paras>
-					<form
-						onSubmit={(e) => {
-							e.preventDefault();
-							handleSubmit();
-						}}>
-						<UserInput>
-							<Icon>
-								<FaUser />
-							</Icon>
-							<input
-								name='fullName'
-								value={formData.fullName}
-								type='text'
-								onChange={onChangeValue}
-								required
-								placeholder='Full Name'
-							/>
-						</UserInput>
+					<form>
 						<UserInput>
 							<Icon>
 								<MdEmail />
 							</Icon>
-							<input
-								name='email'
-								value={formData.email}
-								type='email'
-								onChange={onChangeValue}
-								required
-								placeholder='Email'
-							/>
+							<input type='email' required placeholder='Email' />
 						</UserInput>
-						<UserInput>
-							<Icon>
-								<BsFillTelephoneFill />
-							</Icon>
-							<input
-								name='phoneNumber'
-								value={formData.phoneNumber}
-								onChange={onChangeValue}
-								type='tel'
-								required
-								placeholder='Phone Number'
-							/>
-						</UserInput>
+
 						<UserInput>
 							<Icon>
 								<RiLockPasswordFill />
 							</Icon>
-							<input
-								name='password'
-								value={formData.password}
-								onChange={onChangeValue}
-								type='password'
-								required
-								placeholder='Password'
-							/>
+							<input type='password' required placeholder='Password' />
 							<Visibility>
 								<MdVisibilityOff />
 							</Visibility>
@@ -330,13 +252,13 @@ const AgentSignUpLight: React.FC = () => {
 								<MdVisibility />
 							</VisibilityOn>
 						</UserInput>
-						<UserButton>Sign Up</UserButton>
+						<UserButton>Sign In</UserButton>
 					</form>
 					<Member>
 						<p>
-							Already a Member?{" "}
-							<Link to='/agentsignin'>
-								<span>Sign In</span>
+							Don't have an account?{" "}
+							<Link to='/merchantsignup'>
+								<span>Sign Up</span>
 							</Link>{" "}
 						</p>
 					</Member>
@@ -347,4 +269,4 @@ const AgentSignUpLight: React.FC = () => {
 	);
 };
 
-export default AgentSignUpLight;
+export default MechantSignIn;

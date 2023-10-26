@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "@emotion/styled";
 import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
@@ -7,14 +7,13 @@ import { RiLockPasswordFill } from "react-icons/ri";
 import { FcGoogle } from "react-icons/fc";
 import { MdVisibilityOff } from "react-icons/md";
 import { MdVisibility } from "react-icons/md";
-import { Link, useNavigate } from "react-router-dom";
-import { RegisterAgent } from "../../utils/ApiCalls";
-import Loader from "../../components/commons/Loader";
-import ShowToast from "../../components/commons/ShowToast";
+import { Link } from "react-router-dom";
+import { AiFillSecurityScan } from "react-icons/ai";
 
 const Container = styled.div`
 	height: 100vh;
 	display: flex;
+	overflow-y: scroll;
 `;
 const Wrapper = styled.div`
 	background-color: #f7f9fc;
@@ -43,6 +42,13 @@ const Wrapper = styled.div`
 const Wrapper2 = styled.div`
 	background-color: #f1f1f1;
 	width: 100%;
+   
+    min-height: 120vh;
+   
+   
+  
+  
+  
 	@media (min-width: 320px) and (max-width: 1023px) {
 		display: none;
 	}
@@ -107,6 +113,7 @@ const CenterSignUp = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+
 	h2 {
 		margin: 0;
 		padding-top: 0;
@@ -218,41 +225,9 @@ const Member = styled.div`
 		}
 	}
 `;
-const AgentSignUpLight: React.FC = () => {
-	const Navigate = useNavigate();
-	const [formData, setFormData] = useState({
-		fullName: "",
-		email: "",
-		password: "",
-		phoneNumber: "",
-	});
-
-	const onChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
-		const { value, name } = e.target;
-
-		setFormData((prevProfile) => ({
-			...prevProfile,
-			[name]: value,
-		}));
-	};
-
-	const [load, setLoad] = useState(false);
-
-	const handleSubmit = async () => {
-		setLoad(true);
-		try {
-			await RegisterAgent(formData);
-			setLoad(false);
-			ShowToast(true, "Registration Successfull");
-			Navigate("/agentsignin");
-		} catch (err) {
-			return err;
-		}
-	};
-
+const MerchantSignUp: React.FC = () => {
 	return (
 		<Container>
-			{load ? <Loader /> : null}
 			<Wrapper>
 				<h2>
 					MO<span>MO</span>
@@ -267,62 +242,37 @@ const AgentSignUpLight: React.FC = () => {
 						<p>Use Google Account</p>
 					</Button>
 					<Paras>or</Paras>
-					<form
-						onSubmit={(e) => {
-							e.preventDefault();
-							handleSubmit();
-						}}>
+					<form>
 						<UserInput>
 							<Icon>
 								<FaUser />
 							</Icon>
-							<input
-								name='fullName'
-								value={formData.fullName}
-								type='text'
-								onChange={onChangeValue}
-								required
-								placeholder='Full Name'
-							/>
+							<input type='text' required placeholder='Full Name' />
 						</UserInput>
 						<UserInput>
 							<Icon>
 								<MdEmail />
 							</Icon>
-							<input
-								name='email'
-								value={formData.email}
-								type='email'
-								onChange={onChangeValue}
-								required
-								placeholder='Email'
-							/>
+							<input type='email' required placeholder='Email' />
 						</UserInput>
 						<UserInput>
 							<Icon>
 								<BsFillTelephoneFill />
 							</Icon>
-							<input
-								name='phoneNumber'
-								value={formData.phoneNumber}
-								onChange={onChangeValue}
-								type='tel'
-								required
-								placeholder='Phone Number'
-							/>
+							<input type='tel' required placeholder='Phone Number' />
+						</UserInput>
+
+						<UserInput>
+							<Icon>
+								<AiFillSecurityScan />
+							</Icon>
+							<input type='' required placeholder='Agent Code' />
 						</UserInput>
 						<UserInput>
 							<Icon>
 								<RiLockPasswordFill />
 							</Icon>
-							<input
-								name='password'
-								value={formData.password}
-								onChange={onChangeValue}
-								type='password'
-								required
-								placeholder='Password'
-							/>
+							<input type='password' required placeholder='Password' />
 							<Visibility>
 								<MdVisibilityOff />
 							</Visibility>
@@ -335,7 +285,7 @@ const AgentSignUpLight: React.FC = () => {
 					<Member>
 						<p>
 							Already a Member?{" "}
-							<Link to='/agentsignin'>
+							<Link to='/merchantsignin'>
 								<span>Sign In</span>
 							</Link>{" "}
 						</p>
@@ -347,4 +297,4 @@ const AgentSignUpLight: React.FC = () => {
 	);
 };
 
-export default AgentSignUpLight;
+export default MerchantSignUp;

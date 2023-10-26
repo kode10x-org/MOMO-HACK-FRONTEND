@@ -16,7 +16,7 @@ const AgentMerchant = () => {
           Search
         </div>
       </div>
-      <div className='flex flex-wrap'>
+      <div className='flex justify-center flex-wrap'>
         <MerchantCard/>
         <MerchantCard/>
         <MerchantCard/>
