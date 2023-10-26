@@ -1,14 +1,16 @@
 import React from "react";
 import DisplayCard from "../../components/commons/DisplayCard";
 import Table from "../../components/commons/Table";
+import { GiPayMoney } from "react-icons/gi";
+import { TbCurrencyNaira } from "react-icons/tb";
 
 const AgentOverView = () => {
 	return (
 		<div>
 			<div className='flex gap-5 flex-wrap '>
-				<DisplayCard title='Wallet Balance' amount={50000} />
-				<DisplayCard title='Total Loan Limit' amount={140000} />
-				<DisplayCard title='Total Loan Given' amount={65000} />
+				<DisplayCard title='Wallet Balance' amount={50000} icon={<TbCurrencyNaira/>}  />
+				<DisplayCard title='Total Loan Limit' amount={140000} icon={<GiPayMoney/>}  />
+				<DisplayCard title='Total Loan Given' amount={65000} icon={<GiPayMoney/>}  />
 			</div>
 
 			<div className='flex gap-10 flex-wrap mt-10'>

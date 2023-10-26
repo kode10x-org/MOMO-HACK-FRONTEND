@@ -18,6 +18,15 @@ import MerchantWallet from "../pages/Merchants/MerchantWallet";
 import AgentSettingsProfile from "../pages/Agent/AgentSettingsProfile";
 import AgentSettingsSecurity from "../pages/Agent/AgentSettingsSecurity";
 import AgentMyWallet from "../pages/Agent/AgentMyWallet";
+import UserOverview from "../pages/User/UserOverview";
+import UserLayout from "../components/layouts/UserLayout";
+import UserTransaction from "../pages/User/UserTransaction";
+import UserCreditScore from "../pages/User/UserCreditScore";
+import UserWallet from "../pages/User/UserWallet";
+import UserSettingsProfile from "../pages/User/UserSettingsProfile";
+import UserSettingsSecurity from "../pages/User/UserSettingsSecurity";
+import UserSettingsNotification from "../pages/User/UserSettingsNotification";
+import UserSettingsTerms from "../pages/User/UserSettingsTerms";
 
 const Index = createBrowserRouter([
 	{
@@ -71,6 +80,45 @@ const Index = createBrowserRouter([
 				element: <AgentSettingsSecurity />,
 			}
 		],
+	},
+
+	{
+		path: "user-dashboard",
+		element: <UserLayout/>,
+		children: [
+			{
+				index: true,
+				element: <UserOverview/>
+			},
+			{
+				path: 'transactions',
+				element: <UserTransaction />
+			},
+			{
+				path: "creditscore",
+				element: <UserCreditScore/>
+			},
+			{
+				path: "wallet",
+				element: <UserWallet />
+			},
+			{
+				path: "settingsprofile",
+				element: <UserSettingsProfile />
+			},
+			{
+				path: "settingssecurity",
+				element: <UserSettingsSecurity />
+			},
+			{
+				path: "settingsnotification",
+				element: <UserSettingsNotification />
+			},
+			{
+				path: "settingsterms",
+				element: <UserSettingsTerms />
+			}
+		]
 	},
 
 	{

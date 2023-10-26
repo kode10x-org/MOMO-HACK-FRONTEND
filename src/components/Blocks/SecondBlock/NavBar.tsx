@@ -75,7 +75,7 @@ const Navbar: React.FC = () => {
 				<AiOutlineMenu />
 			</Menu>
 			<Cont>
-				<div>MOMO</div>
+			<h1 className="text-[#084A5F] font-bold text-[22px]">Mo<span className="text-[#FFCB05] font-bold text-[22px]">Mo</span></h1>
 
 				<User>
 					<IconHold style={{ borderRadius: "360px", fontSize: "12px" }}>

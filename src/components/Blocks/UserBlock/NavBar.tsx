@@ -75,15 +75,15 @@ const Navbar: React.FC = () => {
 				<AiOutlineMenu />
 			</Menu>
 			<Cont>
-			<h1 className="text-[#084A5F] font-bold text-[22px]">Mo<span className="text-[#FFCB05] font-bold text-[22px]">Mo</span></h1>
+				<h1 className="text-[#084A5F] font-bold text-[22px]">Market<span className="text-[#FFCB05] font-bold text-[22px]">Padi</span></h1>
 
 				<User>
 					<IconHold style={{ borderRadius: "360px", fontSize: "12px" }}>
 						GE
 					</IconHold>
 					<Hold>
-						<Uname>Gideon Ekeke</Uname>
-						<UEmail>Agent</UEmail>
+						<Uname>Godwin Udoh</Uname>
+						<UEmail>User</UEmail>
 					</Hold>
 				</User>
 			</Cont>

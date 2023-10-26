@@ -47,13 +47,13 @@ const Table = () => {
 						</td>
 						<th
 							scope='row'
-							className='px-6 py-4 font-medium  whitespace-nowrap '>
+							className='px-6 py-4 font-bold  whitespace-nowrap '>
 							12/10/23 12pm
 						</th>
 						<td className='px-6 py-4'>Gideon Ekeke</td>
-						<td className='px-6 py-4'>Sent</td>
-						<td className='px-6 py-4'>538385738583</td>
-						<td className='px-6 py-4'>30,000</td>
+						<td className='px-6 py-4 text-[#22c55e]'>Sent</td>
+						<td className='px-6 py-4 text-[#039ccd]'>538385738583</td>
+						<td className='px-6 py-4 text-black'>30,000</td>
 					</tr>
 
 					<tr
@@ -74,13 +74,13 @@ focus:ring-2 dark:bg-gray-700 dark:border-gray-600'
 						</td>
 						<th
 							scope='row'
-							className='px-6 py-4 font-medium  whitespace-nowrap '>
+							className='px-6 py-4 font-bold  whitespace-nowrap '>
 							12/10/23 12pm
 						</th>
 						<td className='px-6 py-4'>Gideon Ekeke</td>
-						<td className='px-6 py-4'>Sent</td>
-						<td className='px-6 py-4'>538385738583</td>
-						<td className='px-6 py-4'>30,000</td>
+						<td className='px-6 py-4 text-[#22c55e]'>Sent</td>
+						<td className='px-6 py-4 text-[#039ccd]'>538385738583</td>
+						<td className='px-6 py-4 text-black'>30,000</td>
 					</tr>
 
 					<tr
@@ -101,13 +101,13 @@ focus:ring-2 dark:bg-gray-700 dark:border-gray-600'
 						</td>
 						<th
 							scope='row'
-							className='px-6 py-4 font-medium  whitespace-nowrap '>
+							className='px-6 py-4 font-bold  whitespace-nowrap '>
 							12/10/23 12pm
 						</th>
 						<td className='px-6 py-4'>Gideon Ekeke</td>
-						<td className='px-6 py-4'>Sent</td>
-						<td className='px-6 py-4'>538385738583</td>
-						<td className='px-6 py-4'>30,000</td>
+						<td className='px-6 py-4 text-[#22c55e]'>Sent</td>
+						<td className='px-6 py-4 text-[#039ccd]'>538385738583</td>
+						<td className='px-6 py-4 text-black'>30,000</td>
 					</tr>
                     
 				</tbody>

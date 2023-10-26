@@ -14,7 +14,7 @@ const SidebarContainer = styled.div`
 	top: 60px;
 	left: 0;
 	bottom: 0;
-	width: 200px;
+	width: 230px;
 	background-color: white;
 	color: #084a5f;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -55,32 +55,32 @@ const Sidebar: React.FC = () => {
 		<SidebarContainer>
 			<Wrapper>
 				<Cont>
-					<Hold to='/agent-dashboard'>
+					<Hold to='/user-dashboard'>
 						<Icon>
 							<img className='w-[17px]' src={homeLogo} />
 						</Icon>
 						<Nav>Dashboard</Nav>
 					</Hold>
-					<Hold to='/agent-dashboard/agentmywallet'>
-						<Icon >
+					<Hold to='/user-dashboard/wallet'>
+						<Icon>
 							<img className='w-[17px]' src={walletLogo} />
 						</Icon>
 						<Nav>myWallet</Nav>
 					</Hold>
-					<Hold to='/agent-dashboard/transactions'>
+					<Hold to='/user-dashboard/transactions'>
 						<Icon>
 							<img className='w-[17px]' src={transacLogo} />
 						</Icon>
 						<Nav>Transactions</Nav>
 					</Hold>
-					<Hold to='/agent-dashboard/agentmerchant'>
+					<Hold to='creditscore'>
 						<Icon>
 							<img className='w-[17px]' src={merchantLogo} />
 						</Icon>
-						<Nav>Merchants</Nav>
+						<Nav>Credit Score</Nav>
 					</Hold>
 
-					<Hold to='/agent-dashboard/agentprofile'>
+					<Hold to='/user-dashboard/settingsprofile'>
 						<Icon>
 							<img className='w-[17px]' src={settingsLogo} />
 						</Icon>
