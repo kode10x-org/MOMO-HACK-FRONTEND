@@ -2,14 +2,16 @@ import React from "react";
 import DisplayCard from "../../components/commons/DisplayCard";
 import Table from "../../components/commons/Table";
 import PayBil from "../../components/Paybil/PayBil";
+import { GiPayMoney } from "react-icons/gi";
+import { TbCurrencyNaira } from "react-icons/tb";
 
 const MerchantOverView = () => {
 	return (
 		<div>
 			<div className='flex gap-5 flex-wrap '>
-				<DisplayCard title='Wallet Balance' amount={890.807} />
-				<DisplayCard title='Total Loan Limit' amount={6000} />
-				<DisplayCard title='Total Loan Given' amount={35000} />
+				<DisplayCard title='Wallet Balance' amount={890.807} icon={<TbCurrencyNaira/>} />
+				<DisplayCard title='Total Loan Limit' amount={6000} icon={<GiPayMoney/>}  />
+				<DisplayCard title='Total Loan Given' amount={35000} icon={<GiPayMoney/>}  />
 			</div>
 
 
