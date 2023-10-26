@@ -12,6 +12,9 @@ import HomeLayoutDark from "../components/layouts/HomeLayoutDark";
 import OnboardingPage from "../pages/OnboardingPage";
 import AgentTransaction from "../pages/Agent/AgentTransaction";
 import AgentMerchant from "../pages/Agent/AgentMerchant";
+import MerchantLayout from "../components/layouts/MerchantLayout";
+import MerchantOverView from "../pages/Merchants/MerchantOverView";
+import MerchantWallet from "../pages/Merchants/MerchantWallet";
 import AgentSettingsProfile from "../pages/Agent/AgentSettingsProfile";
 import AgentSettingsSecurity from "../pages/Agent/AgentSettingsSecurity";
 import AgentMyWallet from "../pages/Agent/AgentMyWallet";
@@ -23,8 +26,8 @@ const Index = createBrowserRouter([
 		children: [
 			{
 				index: true,
-				element: <HeroLight/>
-			}
+				element: <HeroLight />,
+			},
 		],
 	},
 	{
@@ -33,8 +36,8 @@ const Index = createBrowserRouter([
 		children: [
 			{
 				index: true,
-				element: <HeroDark/>
-			}
+				element: <HeroDark />,
+			},
 		],
 	},
 
@@ -69,21 +72,37 @@ const Index = createBrowserRouter([
 			}
 		],
 	},
+
+	{
+		path: "merchant-dashboard",
+		element: <MerchantLayout />,
+		children: [
+			{
+				index: true,
+				element: <MerchantOverView />,
+			},
+
+			{
+				path: "wallet",
+				element: <MerchantWallet />,
+			},
+		],
+	},
 	{
 		path: "/agentsignuplight",
-		element: <AgentSignUpLight />
+		element: <AgentSignUpLight />,
 	},
 	{
 		path: "/agentsignupdark",
-		element: <AgentSignUpDark />
+		element: <AgentSignUpDark />,
 	},
 	{
 		path: "/agentsigninlight",
-		element: <AgentSignInLight />
+		element: <AgentSignInLight />,
 	},
 	{
 		path: "/agentsignindark",
-		element: <AgentSignInDark />
+		element: <AgentSignInDark />,
 	},
 	{
 		path: "onboarding",
